@@ -1,0 +1,57 @@
+//MARGIN ORDER: TOP RIGHT BOTTOM LEFT
+
+#logo {
+	float: left;
+	margin-right: 10px;
+	font-size: 1.7em;
+	color: black;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+	padding-top: 9px;
+	font-weight: bold;
+	line-height: 1;
+	&:hover {
+		color: black;
+		text-decoration: none;
+	}
+}
+[class*="span"] {
+	float: none;
+}
+
+.checkbox input[type="checkbox"] {
+	float: none;
+	margin: 0 3px 0 0;
+}
+
+.nav-tabs > li, .nav-pills > li {
+    float:none;
+    display:inline-block;
+    *display:inline; /* ie7 fix */
+     zoom:1; /* hasLayout ie7 trigger */
+}
+
+.nav-tabs, .nav-pills {
+    text-align:center;
+}
+
+.well {
+	margin-top: -21px;
+}
+
+.tabbable {
+	margin-top: 50px;
+}
+
+.tab-content {
+	word-wrap: break-word;
+}
+
+textarea {
+	width: 600px;
+	height: 300px;
+}
+
+input[type="checkbox"] {
+	margin-top: -8px;
+}

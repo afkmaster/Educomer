@@ -1,0 +1,42 @@
+.container
+	.foodContainer
+		.row.span5{:style => "margin: 0 auto;"}
+			.row{:style => "float: right;"}
+				-if FileTest.exists?(Rails.root + "app/assets/images/#{@food.UPC}~1.JPG")
+					= image_tag("#{@food.UPC}~1.JPG", :size => "75x75")
+			%h3 #{@food.name}
+			%p UPC: #{@food.UPC}
+			%p.well{:style => "margin-top: 40px;"}
+				Ingredients: #{@food.ingredients}
+			-#%p #{@ingredients}
+			.tabbable
+				%ul.nav.nav-tabs
+					%li.active
+						%a{:href => "#econ", "data-toggle" => "tab"}
+							Economic
+					%li
+						%a{:href => "#gastro", "data-toggle" => "tab"}
+							Gastronomic
+					%li
+						%a{:href => "#nutr", "data-toggle" => "tab"}
+							Nutritional
+				.tab-content.well
+					.tab-pane.active#econ
+						%p #{@food.econ_advice}
+						%p Score: #{@food.econ_score}
+					.tab-pane#gastro
+						%p #{@food.gastro_advice}
+						%p Score: #{@food.gastro_score}
+					.tab-pane#nutr
+						%p #{@food.nutr_advice}
+						%p Score: #{@food.nutr_score}
+			-if user_signed_in?
+				-if current_user.has_role? :admin or current_user.has_role? :score or current_user.has_role? :information or current_user.has_role? :allinfo
+					= link_to('Edit information', edit_food_path(@food), :class => 'btn btn-small')
+	.row.span8{:style => "text-align: center; margin: 150px auto 0 auto;"}
+		.form-search
+			.input-append
+				= form_tag food_index_path, :method => 'get' do
+					= search_field_tag :query, params[:query], :class => 'search-query', :placeholder => 'Search Food'
+					= button_tag(:type => 'submit', :class => 'btn', :id => 'submit_query') do
+						%i.icon-search

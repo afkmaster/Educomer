@@ -1,0 +1,25 @@
+%header.navbar.navbar-fixed-top
+	%nav.navbar-inner
+		.container
+			= link_to "Alimentarte", root_path, id: "logo"
+			%nav
+				%ul.nav.pull-right
+					- if user_signed_in?
+						%li
+							= link_to('Logout', destroy_user_session_path)
+					- else
+						%li
+							= link_to('Login', new_user_session_path)
+					- if user_signed_in?
+						-if current_user.has_role? :admin
+							%li
+								= link_to('Admin', users_path)
+							%li
+								= link_to('Pending', pending_path)
+							%li
+								= link_to('Upload', upload_path)
+						%li
+							= link_to('Edit account', edit_user_registration_path)
+					- else
+						%li
+							= link_to('Sign up', new_user_registration_path)

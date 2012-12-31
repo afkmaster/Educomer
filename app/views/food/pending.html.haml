@@ -1,0 +1,9 @@
+- @foods.each do |food|
+	.container.listContainer
+		.well.row.span5{:style => "margin: 0 auto;"}
+			.row{:style => "float: right;"}
+				-if FileTest.exists?(Rails.root + "app/assets/images/#{food.UPC}~1.JPG")
+					= image_tag("#{food.UPC}~1.JPG", :size => "75x75")
+			%p #{food.name}
+			%p UPC: #{food.UPC}
+			= link_to "More about #{food.name}", food_path(food)

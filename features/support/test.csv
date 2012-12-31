@@ -1,0 +1,3 @@
+name,UPC,ingredients,nutr_score,econ_score,gastro_score,nutr_advice,econ_advice,gastro_advice
+newfood,2,moremagic,1,1,1,1,1,1
+newfood2,3,sugar,1,1,1,1,1,1

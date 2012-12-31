@@ -1,0 +1,11 @@
+=form_for(:upload, :url=>{:action => :parse}, :method=>:post, :html=>{:multipart=>true}) do |f|
+	= f.label :file, 'Upload CSV'
+	= f.file_field :file
+	= button_tag('Submit', :class => 'btn', :type => 'submit')
+
+%p 
+	%br
+	The header of the CSV should be:
+	%br
+	%br
+	name,UPC,ingredients,nutr_score,econ_score,gastro_score,nutr_advice,econ_advice,gastro_advice

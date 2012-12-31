@@ -1,0 +1,17 @@
+.row.span8{:style => "text-align: center; margin: 10px auto 25px auto;"}
+	.form-search
+		.input-append
+			= form_tag food_index_path, :method => 'get' do
+				= search_field_tag :query, params[:query], :class => 'search-query', :placeholder => 'Search Food'
+				= button_tag(:type => 'submit', :class => 'btn', :id => 'submit_query') do
+					%i.icon-search
+
+- @foods.each do |food|
+	.container.listContainer
+		.well.row.span5{:style => "margin: 0 auto;"}
+			.row{:style => "float: right;"}
+				-if FileTest.exists?(Rails.root + "app/assets/images/#{food.UPC}~1.JPG")
+					= image_tag("#{food.UPC}~1.JPG", :size => "75x75")
+			%p #{food.name}
+			%p UPC: #{food.UPC}
+			= link_to "More about #{food.name}", food_path(food)
