@@ -54,4 +54,9 @@ class FoodController < ApplicationController
 		flash[:notice] = "#{@food.name} was successfully updated."
 		redirect_to food_path(@food)
 	end
+
+	def destroy
+		@food = Food.find(params[:id])
+		@food.destroy
+	end
 end
