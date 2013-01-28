@@ -5,16 +5,16 @@
 		.row.span5{:style => "float: right;"}
 			%ul{:style => "list-style: none;"}
 				%li
-					-if FileTest.exists?(Rails.root + "app/assets/images/#{food.UPC}~1.JPG")
+					-if FileTest.exists?(Rails.root + "app/assets/images/#{@food.UPC}~1.JPG")
 						= image_tag("#{@food.UPC}~1.JPG", :size => "250x250")
 				%li
-					-if FileTest.exists?(Rails.root + "app/assets/images/#{food.UPC}~1.JPG")
+					-if FileTest.exists?(Rails.root + "app/assets/images/#{@food.UPC}~1.JPG")
 						= image_tag("#{@food.UPC}~2.JPG", :size => "250x250")
 				%li
-					-if FileTest.exists?(Rails.root + "app/assets/images/#{food.UPC}~1.JPG")
+					-if FileTest.exists?(Rails.root + "app/assets/images/#{@food.UPC}~1.JPG")
 						= image_tag("#{@food.UPC}~3.JPG", :size => "400x400")
 				%li
-					-if FileTest.exists?(Rails.root + "app/assets/images/#{food.UPC}~1.JPG")
+					-if FileTest.exists?(Rails.root + "app/assets/images/#{@food.UPC}~1.JPG")
 						= image_tag("#{@food.UPC}~4.JPG", :size => "400x400")
 		= label :food, :name
 		= text_field :food, 'name'
